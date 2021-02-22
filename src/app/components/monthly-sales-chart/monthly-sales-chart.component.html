@@ -1,3 +1,7 @@
-<p>
-  monthly-sales-chart works!
-</p>
+<h4>Relatório de vendas Mensal</h4>
+
+<app-loading *ngIf="!data"></app-loading>
+
+<div>
+  <canvas id="myChart" width="250" height="120"></canvas>
+</div>

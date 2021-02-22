@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { DataService } from 'src/app/data.services';
 
 declare var Chart: any;
 
@@ -8,10 +9,37 @@ declare var Chart: any;
   templateUrl: './monthly-sales-chart.component.html',
   styleUrls: ['./monthly-sales-chart.component.scss'],
 })
-export class MonthlySalesChartComponent implements OnInit {
+export class MonthlySalesChartComponent implements AfterViewInit {
   public data: any = null;
-  constructor() { }
+  constructor(
+    private servie: DataService
+  ) { }
 
-  ngOnInit() { }
+  ngAfterViewInit() {
+    this.servie
+      .getMonthlySalesChartData().subscribe((res) => {
+        this.data = res;
+        this.render();
+      });
 
+  }
+
+  render() {
+    var e1: any = document.getElementById('myChart');
+    var ctx = e1.getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: this.data,
+      options: {
+        scales: {
+          yAxes: [{
+            tick: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    })
+
+  }
 }

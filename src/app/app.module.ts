@@ -6,11 +6,17 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FramePage } from './pages/shared/frame/frame.page';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    FramePage
+  ],
   entryComponents: [],
   imports: [
+    ComponentsModule,
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
