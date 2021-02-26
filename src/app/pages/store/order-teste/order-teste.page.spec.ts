@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { UserCardComponent } from './user-card.component';
+import { OrderTestePage } from './order-teste.page';
 
-describe('UserCardComponent', () => {
-  let component: UserCardComponent;
-  let fixture: ComponentFixture<UserCardComponent>;
+describe('OrderTestePage', () => {
+  let component: OrderTestePage;
+  let fixture: ComponentFixture<OrderTestePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserCardComponent ],
+      declarations: [ OrderTestePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UserCardComponent);
+    fixture = TestBed.createComponent(OrderTestePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

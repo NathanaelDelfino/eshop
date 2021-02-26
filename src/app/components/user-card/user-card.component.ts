@@ -10,11 +10,12 @@ import { SecurityUtil } from 'src/app/utils/security.util';
 })
 export class UserCardComponent implements OnInit {
   public user: UserModel = null;
-
+  public usuarioCarregado: boolean = false;
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     this.user = SecurityUtil.get();
+
   }
 
   logout() {
